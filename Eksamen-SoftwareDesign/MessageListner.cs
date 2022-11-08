@@ -8,6 +8,6 @@ namespace Eksamen_SoftwareDesign
 {
      class MessageListner
     {
-
+        public
     }
 }

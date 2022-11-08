@@ -7,7 +7,7 @@ namespace NettButikk
         static void Main()
         {
 
-            Console.WriteLine("Hello, welcome to our webstore!");
+            Console.WriteLine("Hello, welcome to our webstore!!");
             Console.ReadKey(true);
         }
     }
