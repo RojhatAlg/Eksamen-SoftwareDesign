@@ -19,19 +19,46 @@ namespace NettButikk
         private void DisplayIntro()
         {
             WriteLine("==============================================");
+            WriteLine("Vennligst velg en kategori mellom a-d");
             WriteLine("KATEGORI:");
+            DisplayCategory();
             WriteLine("==============================================");
-            sellItem("Stol", 500);
         }
 
-        private void sellItem(string itemName, int cost)
+        private void DisplayItems()
         {
-            WriteLine($"Vil du kjøpe denne flotte stolen {itemName} for {cost} ?");
+            WriteLine("==============================================");
+            WriteLine("PRODUKTER");
+            sellItem("Asus gamingstol", 100, "Veldig Behagelig stol for gaming");
+            WriteLine("==============================================");
+        }
+
+        private void AskForCategory()
+        {
+            WriteLine("Vennligst velg et kategori mellom a-d");
+            string kundeKategori = ReadLine();
+
+            //Trenger IF state som returnerer liste av produkter som er valgt av kategori fra bruker (a-d)
+
+        }
+
+        private void sellItem(string itemName, int cost, string beskrivelse)
+        {
+            WriteLine($"Navn: {itemName}\nPris: {cost} \nBeskrivelse: {beskrivelse}");
 
         }
 
         private void DisplayOrderTotal()
         {
+
+        }
+
+        private void DisplayCategory()
+        {
+            WriteLine("a: Stoler");
+            WriteLine("b: Bord");
+            WriteLine("c: Garderobe & Skap");
+            WriteLine("d: Sofa");
 
         }
 
