@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eksamen_SoftwareDesign
+namespace NettButikk
 {
      class MessageListner
     {
