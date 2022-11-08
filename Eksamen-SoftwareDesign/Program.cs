@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eksamen_SoftwareDesign;
+using System;
 
 namespace NettButikk
 {
@@ -7,7 +8,8 @@ namespace NettButikk
         static void Main()
         {
 
-            Console.WriteLine("Hello, welcome to our webstore!!");
+            MessageListner terminal = new();
+
             Console.ReadKey(true);
         }
     }
