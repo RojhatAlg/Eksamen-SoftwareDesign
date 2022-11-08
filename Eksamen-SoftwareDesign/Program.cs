@@ -1,7 +1,7 @@
-﻿using Eksamen_SoftwareDesign;
+﻿using NettButikk;
 using System;
 
-namespace Eksamen_SoftwareDesign
+namespace NettButikk
 {
     class Porgram
     {
