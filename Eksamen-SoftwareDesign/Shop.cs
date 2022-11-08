@@ -21,7 +21,6 @@ namespace NettButikk
         private void DisplayIntro()
         {
             WriteLine("==============================================");
-            WriteLine("Vennligst velg en kategori mellom a-d");
             WriteLine("KATEGORI:");
             DisplayCategory();
             WriteLine("==============================================");
@@ -48,17 +47,6 @@ namespace NettButikk
             {
                 product.DisplayItemSofa();
             }
-
-
- 
-
-            //Trenger IF state som returnerer liste av produkter som er valgt av kategori fra bruker (a-d)
-
-        }
-
-        private void sellItem(string itemName, int cost, string beskrivelse)
-        {
-            WriteLine($"Navn: {itemName}\nPris: {cost} \nBeskrivelse: {beskrivelse}");
 
         }
 

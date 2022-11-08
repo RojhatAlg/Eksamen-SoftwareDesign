@@ -2,7 +2,7 @@
 
 namespace NettButikk
 {
-    class Porgram
+    class Program
     {
         static void Main(string[] args)
         {

@@ -15,7 +15,7 @@ namespace NettButikk
         {
             WriteLine("==============================================");
             WriteLine("STOLER");
-            WriteLine("Asus gamingstol", 100, "Veldig Behagelig stol for gaming");
+            sellItem("Asus gamingstol", 100, "Veldig Behagelig stol for gaming");
             WriteLine("==============================================");
         }
 
@@ -24,7 +24,7 @@ namespace NettButikk
         {
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
-            WriteLine("IKEA Skrivebord", 150, "Den er litt whack lowkey men den funker");
+            sellItem("IKEA Skrivebord", 150, "Den er litt whack lowkey men den funker");
             WriteLine("==============================================");
         }
 
@@ -32,7 +32,7 @@ namespace NettButikk
         {
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
-            WriteLine("PAX skap", 1550, "Stor å fin garderobeskap med skyvedører");
+            sellItem("PAX skap", 1550, "Stor å fin garderobeskap med skyvedører");
             WriteLine("==============================================");
 
         }
@@ -41,10 +41,16 @@ namespace NettButikk
         {
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
-            WriteLine("Scandinavian Sofa", 5600, "Behagelig 3 seters sofa laget med ekte skandinavisk kamel");
+            sellItem("Scandinavian Sofa", 5600, "Behagelig 3 seters sofa laget med ekte skandinavisk kamel");
             WriteLine("==============================================");
         }
-       
+
+        private void sellItem(string itemName, int cost, string beskrivelse)
+        {
+            WriteLine($"Navn: {itemName}\nPris: {cost} \nBeskrivelse: {beskrivelse}");
+
+        }
+
 
 
     }
