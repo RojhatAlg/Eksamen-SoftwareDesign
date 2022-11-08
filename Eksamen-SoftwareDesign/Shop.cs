@@ -13,6 +13,7 @@ namespace NettButikk
         {
             // Shop logic
             DisplayIntro();
+            AskForCategory();
             DisplayOutro();
         }
 
@@ -25,18 +26,19 @@ namespace NettButikk
             WriteLine("==============================================");
         }
 
-        private void DisplayItems()
-        {
-            WriteLine("==============================================");
-            WriteLine("PRODUKTER");
-            sellItem("Asus gamingstol", 100, "Veldig Behagelig stol for gaming");
-            WriteLine("==============================================");
-        }
+
 
         private void AskForCategory()
         {
             WriteLine("Vennligst velg et kategori mellom a-d");
             string kundeKategori = ReadLine();
+            if(kundeKategori == "a")
+            {
+                DisplayItemStol();
+            } if(kundeKategori == "b")
+            {
+                DisplayItemBord();
+            } 
 
             //Trenger IF state som returnerer liste av produkter som er valgt av kategori fra bruker (a-d)
 
@@ -61,12 +63,26 @@ namespace NettButikk
             WriteLine("d: Sofa");
 
         }
-
+        
         private void DisplayOutro()
         {
             WriteLine("Thanks for shopping!");
             WriteLine("Press any key to exit...");
             ReadKey();
+        }
+        private void DisplayItemBord()
+        {
+            WriteLine("==============================================");
+            WriteLine("PRODUKTER");
+            sellItem("IKEA Skrivebord", 150, "Den er litt whack lowkey men den funker");
+            WriteLine("==============================================");
+        }
+        private void DisplayItemStol()
+        {
+            WriteLine("==============================================");
+            WriteLine("PRODUKTER");
+            sellItem("Asus gamingstol", 100, "Veldig Behagelig stol for gaming");
+            WriteLine("==============================================");
         }
     }
 }
