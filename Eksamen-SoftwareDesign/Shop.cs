@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
@@ -30,15 +31,26 @@ namespace NettButikk
 
         private void AskForCategory()
         {
+            Produkt product = new Produkt();
+           
             WriteLine("Vennligst velg et kategori mellom a-d");
             string kundeKategori = ReadLine();
             if(kundeKategori == "a")
             {
-                DisplayItemStol();
+                product.DisplayItemStol();
             } if(kundeKategori == "b")
             {
-                DisplayItemBord();
-            } 
+                product.DisplayItemBord();
+            } if(kundeKategori == "c")
+            {
+                product.DisplayItemGarderobeSkap();
+            } if (kundeKategori == "d")
+            {
+                product.DisplayItemSofa();
+            }
+
+
+ 
 
             //Trenger IF state som returnerer liste av produkter som er valgt av kategori fra bruker (a-d)
 
@@ -70,19 +82,6 @@ namespace NettButikk
             WriteLine("Press any key to exit...");
             ReadKey();
         }
-        private void DisplayItemBord()
-        {
-            WriteLine("==============================================");
-            WriteLine("PRODUKTER");
-            sellItem("IKEA Skrivebord", 150, "Den er litt whack lowkey men den funker");
-            WriteLine("==============================================");
-        }
-        private void DisplayItemStol()
-        {
-            WriteLine("==============================================");
-            WriteLine("PRODUKTER");
-            sellItem("Asus gamingstol", 100, "Veldig Behagelig stol for gaming");
-            WriteLine("==============================================");
-        }
+        
     }
 }
