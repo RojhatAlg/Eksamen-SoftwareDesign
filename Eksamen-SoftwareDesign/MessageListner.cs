@@ -10,8 +10,8 @@ namespace Eksamen_SoftwareDesign
     {
         public MessageListner()
         {
-            Console.WriteLine("Hello, welcome to our webshop!");
-            Console.WriteLine("\nPress any button to quit our terminal.");
+            Console.WriteLine("Hello, welcome to our Webshop!");
+            Console.WriteLine("\nPress any button to enter the Webshop.");
         }
     }
 }

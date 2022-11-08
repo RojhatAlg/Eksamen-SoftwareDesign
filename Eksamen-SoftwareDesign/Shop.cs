@@ -12,12 +12,15 @@ namespace NettButikk
         public void run()
         {
             // Shop logic
+            DisplayIntro();
             DisplayOutro();
         }
 
         private void DisplayIntro()
         {
-
+            WriteLine("==============================================");
+            WriteLine("KATEGORI:");
+            WriteLine("==============================================");
         }
 
         private void sellItem()
