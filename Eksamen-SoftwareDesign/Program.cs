@@ -1,2 +1,14 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World! :D");
+﻿using System;
+
+namespace NettButikk
+{
+    class Porgram
+    {
+        static void Main()
+        {
+
+            Console.WriteLine("Hello, welcome to our webstore!");
+            Console.ReadKey(true);
+        }
+    }
+}
