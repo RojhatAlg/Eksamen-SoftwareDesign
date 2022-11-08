@@ -1,5 +1,4 @@
-﻿using Eksamen_SoftwareDesign;
-using System;
+﻿using System;
 
 namespace NettButikk
 {

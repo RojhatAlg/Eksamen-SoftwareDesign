@@ -21,10 +21,12 @@ namespace NettButikk
             WriteLine("==============================================");
             WriteLine("KATEGORI:");
             WriteLine("==============================================");
+            sellItem("Stol", 500);
         }
 
-        private void sellItem()
+        private void sellItem(string itemName, int cost)
         {
+            WriteLine($"Vil du kjøpe denne flotte stolen {itemName} for {cost} ?");
 
         }
 
