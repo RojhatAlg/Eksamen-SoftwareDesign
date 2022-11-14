@@ -27,7 +27,8 @@ namespace NettButikk
             command.CommandText = @"
                 CREATE TABLE product (
                     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                    productName TEXT NOT NULL
+                    productName TEXT NOT NULL,
+                    productPrice TEXT NOT NULL
                 );
             ";
             try
@@ -42,7 +43,7 @@ namespace NettButikk
             
         }
 
-        public int InsertProduct(string productName)
+        public int InsertProduct(string productName, string productPrice)
         {
             int generatedId = -1;
 
@@ -59,11 +60,12 @@ namespace NettButikk
             }
             SqliteCommand command = connection.CreateCommand();
             command.CommandText = @"
-				INSERT INTO product (productName)
-				VALUES ($productName);
+				INSERT INTO product (productName, productPrice)
+				VALUES ($productName, $productPrice);
 			";
             command.Parameters.AddWithValue("$productName", productName);
-            
+            command.Parameters.AddWithValue("$productPrice", productPrice);
+
             try
             {
                 command.ExecuteNonQuery();
@@ -100,6 +102,7 @@ namespace NettButikk
         public string ReadProductName(int id)
         {
             string productName = "";
+            string productPrice = "";
 
             using SqliteConnection connection = new("Data Source = exampleSqlite.db");
             try
@@ -113,7 +116,7 @@ namespace NettButikk
             }
             SqliteCommand command = connection.CreateCommand();
             command.CommandText = @"
-				SELECT productName FROM product WHERE id = $id
+				SELECT productName, productPrice FROM product WHERE id = $id
 			";
 
             
@@ -123,11 +126,12 @@ namespace NettButikk
             if (reader.Read())
             {
                 productName = reader.GetString(0);
+                productPrice = reader.GetString(0);
             }
-    
-            
 
             return productName;
+
+ 
         }
 
         public void DropDb()

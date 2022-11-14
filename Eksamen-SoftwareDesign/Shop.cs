@@ -30,7 +30,7 @@ namespace NettButikk
 
         private void AskForCategory()
         {
-            Produkt product = new Produkt();
+            Product product = new Product();
            
             WriteLine("Vennligst velg et kategori mellom a-d");
             string kundeKategori = ReadLine();

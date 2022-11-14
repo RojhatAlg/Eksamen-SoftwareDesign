@@ -7,7 +7,7 @@ using static System.Console;
 
 namespace NettButikk
 {
-    internal class Produkt
+    internal class Product
     {
 
 
@@ -15,7 +15,18 @@ namespace NettButikk
         {
             WriteLine("==============================================");
             WriteLine("STOLER");
-            sellItem("Asus gamingstol", 100, "Veldig Behagelig stol for gaming");
+            WebShopDataBase db = new();
+
+            //db.CreateDbAndTable();
+
+            int firstProductId = db.InsertProduct("Elkjøp Sofa", "100");
+            int secondProductId = db.InsertProduct("Ikea Gamingbord", "50");
+
+            string firstProductCreated = db.ReadProductName(firstProductId);
+            string secondProductCreated = db.ReadProductName(secondProductId);
+
+            Console.WriteLine($"First product:  '{firstProductCreated}'");
+            Console.WriteLine($"Second product: '{secondProductCreated}'");
             WriteLine("==============================================");
         }
 
