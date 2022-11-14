@@ -15,7 +15,7 @@ namespace NettButikk
 
             WebShopDataBase db = new();
 
-            db.CreateDbAndTable();
+            //db.CreateDbAndTable();
 
             int firstProductId = db.InsertProduct("Elkjøp Sofa");
             int secondProductId = db.InsertProduct("Ikea Gamingbord");

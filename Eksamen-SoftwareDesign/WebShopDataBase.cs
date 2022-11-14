@@ -76,7 +76,7 @@ namespace NettButikk
             command.CommandText = @"
 				SELECT seq
 				FROM sqlite_sequence
-				WHERE productName = 'product';
+				WHERE name = 'product';
 			";
 
             try
@@ -90,7 +90,7 @@ namespace NettButikk
 
             catch (Exception)
             {
-
+                
             }
             
 
@@ -107,30 +107,24 @@ namespace NettButikk
                 connection.Open();
             }
 
-            catch (Exception)
+            catch (Exception e)
             {
-
+                Console.Write(e.ToString(), "Error");
             }
             SqliteCommand command = connection.CreateCommand();
             command.CommandText = @"
-				SELECT productName
-				FROM product
-				WHERE id = $id
+				SELECT productName FROM product WHERE id = $id
 			";
-            try
-            {
-                command.Parameters.AddWithValue("$id", id);
-                using SqliteDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    productName = reader.GetString(0);
-                }
-            }
 
-            catch(Exception)
+            
+            
+            command.Parameters.AddWithValue("$id", id);
+            using SqliteDataReader reader = command.ExecuteReader();
+            if (reader.Read())
             {
-
+                productName = reader.GetString(0);
             }
+    
             
 
             return productName;
