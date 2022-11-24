@@ -10,32 +10,25 @@ namespace NettButikk
     internal class Product
     {
 
-
         public void DisplayItemStol()
         {
+            
             WriteLine("==============================================");
-            WriteLine("STOLER");
-            WebShopDataBase db = new();
-
-            //db.CreateDbAndTable();
-
-            int firstProductId = db.InsertProduct("Elkjøp Sofa", "100");
-            int secondProductId = db.InsertProduct("Ikea Gamingbord", "50");
-
-            string firstProductCreated = db.ReadProductName(firstProductId);
-            string secondProductCreated = db.ReadProductName(secondProductId);
-
-            Console.WriteLine($"First product:  '{firstProductCreated}'");
-            Console.WriteLine($"Second product: '{secondProductCreated}'");
+            WriteLine("PRODUKTER");
+            sellItem("a) Elkjøp Gamingstol", 2000, "Flott rød og svar gamingstol fra elkjøp!");
+            sellItem("b) IKEA Kontorstol", 1100, "Helt vanlig svart kontorstol fra IKEA som funker flott for skolen!");
             WriteLine("==============================================");
         }
 
     
         public void DisplayItemBord()
         {
+
+
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
-            sellItem("IKEA Skrivebord", 150, "Den er litt whack lowkey men den funker");
+            sellItem("a) IKEA Skrivebord", 150, "Den er litt whack lowkey men den funker");
+            sellItem("b) JYSK Spisebord", 500, "Den er flott for hele familien!");
             WriteLine("==============================================");
         }
 
@@ -43,7 +36,8 @@ namespace NettButikk
         {
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
-            sellItem("PAX skap", 1550, "Stor å fin garderobeskap med skyvedører");
+            sellItem("a) PAX skap", 1550, "Stor å fin garderobeskap med skyvedører");
+            sellItem("b) IKEA Skap", 750, "Stor dobbedør skap for alle dine flotte klær");
             WriteLine("==============================================");
 
         }
@@ -52,7 +46,8 @@ namespace NettButikk
         {
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
-            sellItem("Scandinavian Sofa", 5600, "Behagelig 3 seters sofa laget med ekte skandinavisk kamel");
+            sellItem("a) Scandinavian Sofa", 5600, "Behagelig 3 seters sofa laget med ekte skandinavisk kamel");
+            sellItem("b) IKEA Sofa", 3500, "Flott 5 personers sofa som er laget av flott skinn");
             WriteLine("==============================================");
         }
 
@@ -61,8 +56,6 @@ namespace NettButikk
             WriteLine($"Navn: {itemName}\nPris: {cost} \nBeskrivelse: {beskrivelse}");
 
         }
-
-
 
     }
 }
