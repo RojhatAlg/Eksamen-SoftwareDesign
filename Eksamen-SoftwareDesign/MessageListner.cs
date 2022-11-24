@@ -25,6 +25,19 @@ namespace NettButikk
 
             Console.WriteLine($"First product was:  '{firstProductCreated.ProductName}'" + $" '{firstProductCreated.ProductPrice}' kroner " + $" Beskrivelse: {firstProductCreated.ProductDesc}");
             Console.WriteLine($"Second product was: '{secondProductCreated.ProductName}'"+ $" '{secondProductCreated.ProductPrice}' kroner " + $" Beskrivelse: {secondProductCreated.ProductDesc}");
+
+            CustomerDataBase db_customer = new();
+            db_customer.CreateDbAndTable();
+
+            int firstCustomerId = db_customer.InsertCustomer("Mohammed", "2500");
+            int secondCustomerId = db_customer.InsertCustomer("Jonas", "1500");
+
+            Customer firstCustomerCreated = db_customer.ReadCustomer(firstCustomerId);
+            Customer secondCustomerCreated = db_customer.ReadCustomer(secondCustomerId);
+
+            Console.WriteLine($"First Customer:  '{firstCustomerCreated.CustomerName}'" + $" '{firstCustomerCreated.CustomerWallet}' kroner ");
+            Console.WriteLine($"Secound Customer:  '{secondCustomerCreated.CustomerName}'" + $" '{secondCustomerCreated.CustomerWallet}' kroner ");
+
         }
     }
 }

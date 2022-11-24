@@ -18,7 +18,7 @@ namespace NettButikk
                 connection.Open();
             }
 
-            catch(Exception)
+            catch (Exception)
             {
 
             }
@@ -44,7 +44,7 @@ namespace NettButikk
             {
 
             }
-            
+
         }
 
         public int InsertProduct(string productName, string productPrice, string productDesc, string productHeight, string productLenght, string productWidth)
@@ -100,9 +100,9 @@ namespace NettButikk
 
             catch (Exception)
             {
-                
+
             }
-            
+
 
             return generatedId;
         }
@@ -131,15 +131,15 @@ namespace NettButikk
 				SELECT productName, productPrice, productDesc, productHeight, productLenght, productWidth FROM product WHERE id = $id
 			";
 
-            
-            
+
+
             command.Parameters.AddWithValue("$id", id);
             using SqliteDataReader reader = command.ExecuteReader();
 
-            
+
 
             if (reader.Read())
-             
+
             {
 
                 Product product = new Product(productName, productPrice, productDesc, productHeight, productLenght, productWidth);
@@ -159,17 +159,162 @@ namespace NettButikk
 
                 return product;
 
-                
+
             }
 
             return null;
 
- 
+
         }
 
         public void DropDb()
         {
             File.Delete("exampleSqlite.db");
+        }
+
+    }
+
+    internal class CustomerDataBase
+    {
+
+        public void CreateDbAndTable()
+        {
+            using SqliteConnection connection = new("Data Source = exampleSqlite.db");
+            try
+            {
+                connection.Open();
+            }
+
+            catch (Exception)
+            {
+
+            }
+
+            SqliteCommand command = connection.CreateCommand();
+            command.CommandText = @"
+                CREATE TABLE customer (
+                    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    customerName TEXT NOT NULL,
+                    customerWallet TEXT NOT NULL
+                );
+            ";
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        public int InsertCustomer(string customerName, string customerWallet)
+        {
+            int generatedId = -1;
+
+            using SqliteConnection connection = new("Data Source = exampleSqlite.db");
+
+            try
+            {
+                connection.Open();
+            }
+
+            catch (Exception)
+            {
+
+            }
+            SqliteCommand command = connection.CreateCommand();
+            command.CommandText = @"
+				INSERT INTO customer (customerName, customerWallet)
+				VALUES ($customerName, $customerWallet);
+			";
+            command.Parameters.AddWithValue("$customerName", customerName);
+            command.Parameters.AddWithValue("$customerWallet", customerWallet);
+            
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+
+            catch (Exception)
+            {
+
+            }
+            command.CommandText = @"
+				SELECT seq
+				FROM sqlite_sequence
+				WHERE name = 'customer';
+			";
+
+            try
+            {
+                using SqliteDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    generatedId = reader.GetInt32(0);
+                }
+            }
+
+            catch (Exception)
+            {
+
+            }
+
+
+            return generatedId;
+        }
+
+        public Customer ReadCustomer(int id)
+        {
+            string customerName = "";
+            string customerWallet = "";
+            
+
+            using SqliteConnection connection = new("Data Source = exampleSqlite.db");
+            try
+            {
+                connection.Open();
+            }
+
+            catch (Exception e)
+            {
+                Console.Write(e.ToString(), "Error");
+            }
+            SqliteCommand command = connection.CreateCommand();
+            command.CommandText = @"
+				SELECT customerName, customerWallet FROM customer WHERE id = $id
+			";
+
+
+
+            command.Parameters.AddWithValue("$id", id);
+            using SqliteDataReader reader = command.ExecuteReader();
+
+
+
+            if (reader.Read())
+
+            {
+
+                Customer customer = new Customer(customerName, customerWallet);
+                customerName = reader.GetString(0);
+                customerWallet = reader.GetString(1);
+                customer.CustomerName = customerName;
+                customer.CustomerWallet = customerWallet;
+                
+
+
+                return customer;
+
+
+            }
+
+            return null;
+
+
         }
 
     }
