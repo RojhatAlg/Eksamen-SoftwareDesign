@@ -10,7 +10,6 @@ namespace NettButikk
 {
     class Shop
     {
-        public int totalCost;
         public void run()
         {
             // Shop logic
@@ -65,13 +64,13 @@ namespace NettButikk
 
             if (valgStol == "a")
             {
-                totalCost += 2000;
-                WriteLine("2000$ Has been added to the total cost. Total cost is now: " + totalCost + "$");
+                Money.totalCost += 2000;
+                WriteLine("2000$ Has been added to the total cost. Total cost is now: " + Money.totalCost + "$");
                 displayCheckout();
             }
             if (valgStol == "b")
             {
-                totalCost += 1100;
+                Money.totalCost += 1100;
                 WriteLine("1100$ Has been added to the total cost.");
                 displayCheckout();
             }
@@ -84,13 +83,13 @@ namespace NettButikk
             
             if (valgBord == "a")
             {
-                totalCost += 150;
-                WriteLine("150$ Has been added to the total cost. Total cost is now: " + totalCost + "$");
+                Money.totalCost += 150;
+                WriteLine("150$ Has been added to the total cost. Total cost is now: " + Money.totalCost + "$");
                 displayCheckout();
             }
             if (valgBord == "b")
             {
-                totalCost += 500;
+                Money.totalCost += 500;
                 WriteLine("500$ Has been added to the total cost.");
                 displayCheckout();
             }
@@ -103,13 +102,13 @@ namespace NettButikk
 
             if (valgSkap == "a")
             {
-                totalCost += 1550;
-                WriteLine("1550$ Has been added to the total cost. Total cost is now: " + totalCost + "$");
+                Money.totalCost += 1550;
+                WriteLine("1550$ Has been added to the total cost. Total cost is now: " + Money.totalCost + "$");
                 displayCheckout();
             }
             if (valgSkap == "b")
             {
-                totalCost += 750;
+                Money.totalCost += 750;
                 WriteLine("750$ Has been added to the total cost.");
                 displayCheckout();
             }
@@ -122,13 +121,13 @@ namespace NettButikk
 
             if (valgSofa == "a")
             {
-                totalCost += 5600;
-                WriteLine("5600$ Has been added to the total cost. Total cost is now: " + totalCost + "$");
+                Money.totalCost += 5600;
+                WriteLine("5600$ Has been added to the total cost. Total cost is now: " + Money.totalCost + "$");
                 displayCheckout();
             }
             if (valgSofa == "b")
             {
-                totalCost += 3500;
+                Money.totalCost += 3500;
                 WriteLine("3500$ Has been added to the total cost.");
                 displayCheckout();
             }
@@ -136,7 +135,7 @@ namespace NettButikk
 
         private void displayCheckout()
         {
-            WriteLine("Total cost is now: " + totalCost + "$");
+            WriteLine("Total cost is now: " + Money.totalCost + "$");
             WriteLine("Do you want to contine shopping? y/n");
             String continueYorN = ReadLine();
             if (continueYorN == "y"){
@@ -159,7 +158,7 @@ namespace NettButikk
         
         private void DisplayOutro()
         {
-            WriteLine("Your totale came out to be: " + totalCost);
+            WriteLine("Your totale came out to be: " + Money.totalCost);
             WriteLine("Thanks for shopping! :)");
             WriteLine("Press any key to exit...");
             ReadKey();
