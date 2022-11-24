@@ -17,8 +17,8 @@ namespace NettButikk
 
             db.CreateDbAndTable();
 
-            int firstProductId = db.InsertProduct("Elkjøp Sofa", "100", "Stor sofa for 3 personer");
-            int secondProductId = db.InsertProduct("Ikea Gamingbord", "50", "Bra gaming bord");
+            int firstProductId = db.InsertProduct("Elkjøp Sofa", "100", "Stor sofa for 3 personer", "2", "1", "5");
+            int secondProductId = db.InsertProduct("Ikea Gamingbord", "50", "Bra gaming bord", "1", "43", "123123");
 
             Product firstProductCreated = db.ReadProduct(firstProductId);
             Product secondProductCreated = db.ReadProduct(secondProductId);

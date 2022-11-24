@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
@@ -12,12 +13,18 @@ namespace NettButikk
         internal string productName;
         internal string productPrice;
         internal string productDesc;
+        internal string productHeight;
+        internal string productLenght;
+        internal string productWidth;
 
-        public Product(string productName, string productPrice, string productDesc)
+        public Product(string productName, string productPrice, string productDesc, string productHeight, string productLenght, string productWidth)
         {
             this.productName = productName;
             this.productPrice = productPrice;
             this.productDesc = productDesc; 
+            this.productHeight = productHeight;
+            this.productLenght = productLenght;
+            this.productWidth = productWidth;
         }
 
         public string ProductName { 
@@ -31,10 +38,28 @@ namespace NettButikk
             set { productPrice = value; }
         }
 
-        public String ProductDesc
+        public string ProductDesc
         {
             get { return productDesc; }
             set { productDesc = value; }
+        }
+
+        public string ProductHeight
+        {
+            get { return productHeight; }
+            set { productHeight = value; }
+        }
+
+        public string ProductLenght
+        {
+            get { return productLenght; }
+            set { productLenght = value; }
+        }
+
+        public string ProductWidth
+        {
+            get { return productWidth; }
+            set { productWidth = value; }
         }
 
         public Product()
@@ -63,8 +88,8 @@ namespace NettButikk
 
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
-            sellItem("a) IKEA Skrivebord", 150, "Den er litt whack lowkey men den funker");
-            sellItem("b) JYSK Spisebord", 500, "Den er flott for hele familien!");
+            CreateProduct createProduct = new CreateProduct();
+            createProduct.createItemBord();
             WriteLine("==============================================");
         }
 
@@ -72,8 +97,8 @@ namespace NettButikk
         {
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
-            sellItem("a) PAX skap", 1550, "Stor å fin garderobeskap med skyvedører");
-            sellItem("b) IKEA Skap", 750, "Stor dobbedør skap for alle dine flotte klær!");
+            CreateProduct createProduct = new CreateProduct();
+            createProduct.createItemGarderobeSkap();
             WriteLine("==============================================");
 
         }
@@ -82,8 +107,8 @@ namespace NettButikk
         {
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
-            sellItem("a) Scandinavian Sofa", 5600, "Behagelig 3 seters sofa laget med ekte skandinavisk kamel");
-            sellItem("b) IKEA Sofa", 3500, "Flott 5 personers sofa som er laget av flott skinn");
+            CreateProduct createProduct = new CreateProduct();
+            createProduct.createItemSofa();
             WriteLine("==============================================");
         }
 
@@ -103,21 +128,186 @@ namespace NettButikk
 
             db.CreateDbAndTable();
 
-            int firstProductId = db.InsertProduct("Gaming stol", "2000", "Dette er en bra gaming stol. Svært behagelig for maaange lange gaming økter!");
+            //Create the Items
+
+            int firstProductId = db.InsertProduct("Gaming stol", "2000", "Dette er en bra gaming stol. Svært behagelig for maaange lange gaming økter!", "100", "50", "60");
             int secondProductId = db.InsertProduct("Luksus stol", "1100", "Vil du ha en stol? eller vil du ha noe mer enn en stol? " +
-                "Har du alltid drømt om å sitte på en sky? Engst deg ikke! Kjøp denne luksus stolen, andre stoler skal føles ut som betong etter denne!");
-            int thirdProductId = db.InsertProduct("Billig stol", "20", "Mye stol for pengene.");
+                "Har du alltid drømt om å sitte på en sky? Engst deg ikke! Kjøp denne luksus stolen, andre stoler skal føles ut som betong etter denne!", "75", "100", "45");
+            int thirdProductId = db.InsertProduct("Billig stol", "20", "Mye stol for pengene.", "50", "60", "50");
 
             Product firstProductCreated = db.ReadProduct(firstProductId);
             Product secondProductCreated = db.ReadProduct(secondProductId);
             Product thirdProductCreated = db.ReadProduct(thirdProductId);
 
-            Console.WriteLine($"a):\nNavn: '{firstProductCreated.ProductName}'\n" + $"Beskrivelse: '{firstProductCreated.ProductDesc}'\n" + $"Pris: '{firstProductCreated.ProductPrice}$'\n");
-            Console.WriteLine($"b):\nNavn: '{secondProductCreated.ProductName}'\n" + $"Beskrivelse: '{secondProductCreated.ProductDesc}'\n" + $"Pris: '{secondProductCreated.ProductPrice}$'\n");
-            Console.WriteLine($"c):\nNavn: '{thirdProductCreated.ProductName}'\n" + $"Beskrivelse: '{thirdProductCreated.ProductDesc}'\n" + $"Pris: '{thirdProductCreated.ProductPrice}$'\n");
+            //Display the Items
+            //Stol 1:
+
+            Console.WriteLine($"a):\nNavn: '{firstProductCreated.ProductName}'\n" + $"Beskrivelse: '{firstProductCreated.ProductDesc}'\n" 
+                + $"Høyde: '{firstProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{firstProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{firstProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{firstProductCreated.ProductPrice}$'\n");
+
+            //Stol 2:
+
+            Console.WriteLine($"b):\nNavn: '{secondProductCreated.ProductName}'\n" + $"Beskrivelse: '{secondProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{secondProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{secondProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{secondProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{secondProductCreated.ProductPrice}$'\n");
+
+            //Stol 3:
+
+            Console.WriteLine($"c):\nNavn: '{thirdProductCreated.ProductName}'\n" + $"Beskrivelse: '{thirdProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{thirdProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{thirdProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{thirdProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{thirdProductCreated.ProductPrice}$'\n");
+
 
 
         }
+
+        public void createItemBord()
+        {
+
+            WebShopDataBase db = new();
+
+            db.CreateDbAndTable();
+
+            //Create the Items
+
+            int firstProductId = db.InsertProduct("Gamingbord", "1200", "Dette er et bra gaming bord. Passer perfekt med kombinasjon til gaming stol", "75", "180", "80");
+            int secondProductId = db.InsertProduct("Skrivebord", "380", "Skrivebord fra Ikea. Perfekt for skolearebeid", "75", "100", "45");
+            int thirdProductId = db.InsertProduct("Spisebord", "750", "Spiser din familie middag på bakken? Er du lei av å spise middag på bakken? Trenger din familie et spisebord?" +
+                " Engst ikke mer! Kjøp vår billige spisebord! Bordet har plass til hele familien! Til å med bikkja!", "75", "250", "120");
+
+            Product firstProductCreated = db.ReadProduct(firstProductId);
+            Product secondProductCreated = db.ReadProduct(secondProductId);
+            Product thirdProductCreated = db.ReadProduct(thirdProductId);
+
+            //Display the Items
+            //Stol 1:
+
+            Console.WriteLine($"a):\nNavn: '{firstProductCreated.ProductName}'\n" + $"Beskrivelse: '{firstProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{firstProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{firstProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{firstProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{firstProductCreated.ProductPrice}$'\n");
+
+            //Stol 2:
+
+            Console.WriteLine($"b):\nNavn: '{secondProductCreated.ProductName}'\n" + $"Beskrivelse: '{secondProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{secondProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{secondProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{secondProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{secondProductCreated.ProductPrice}$'\n");
+
+            //Stol 3:
+
+            Console.WriteLine($"c):\nNavn: '{thirdProductCreated.ProductName}'\n" + $"Beskrivelse: '{thirdProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{thirdProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{thirdProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{thirdProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{thirdProductCreated.ProductPrice}$'\n");
+
+
+
+        }
+
+        public void createItemGarderobeSkap()
+        {
+
+            WebShopDataBase db = new();
+
+            db.CreateDbAndTable();
+
+            //Create the Items
+
+            int firstProductId = db.InsertProduct("Garderobe", "2230", "Stort garderobe til alle dine klær.", "190", "140", "65");
+            int secondProductId = db.InsertProduct("Skap", "630", "Langskap for diverse utstyr", "220", "80", "60");
+
+            Product firstProductCreated = db.ReadProduct(firstProductId);
+            Product secondProductCreated = db.ReadProduct(secondProductId);
+
+            //Display the Items
+            //Garderobe 1:
+
+            Console.WriteLine($"a):\nNavn: '{firstProductCreated.ProductName}'\n" + $"Beskrivelse: '{firstProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{firstProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{firstProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{firstProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{firstProductCreated.ProductPrice}$'\n");
+
+            //Skap 2:
+
+            Console.WriteLine($"b):\nNavn: '{secondProductCreated.ProductName}'\n" + $"Beskrivelse: '{secondProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{secondProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{secondProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{secondProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{secondProductCreated.ProductPrice}$'\n");
+
+
+
+        }
+
+        public void createItemSofa()
+        {
+
+            WebShopDataBase db = new();
+
+            db.CreateDbAndTable();
+
+            //Create the Items
+
+            int firstProductId = db.InsertProduct("Gaming Sofa", "3500", "Gaming + Sofa i samme setning? Trenger vi å si mer?", "45", "75", "90");
+            int secondProductId = db.InsertProduct("3-seters Sofa", "5000", "Fin 3 seters sofa, perfekt for stor stue. Laget av ekte skinn.", "50", "200", "100");
+            int thirdProductId = db.InsertProduct("2-seters Sofa", "3350", "Fin 2-seters sofa, perfekt for litt mindre stuer.", "48", "150", "95");
+            int fourthProductId = db.InsertProduct("5-seters Sofa", "7850", "Har du hørt 'Større = Bedre'?, vel i dette tilfelle stemmer det 100%!", "50", "350", "110");
+
+            Product firstProductCreated = db.ReadProduct(firstProductId);
+            Product secondProductCreated = db.ReadProduct(secondProductId);
+            Product thirdProductCreated = db.ReadProduct(thirdProductId);
+            Product fourthProductCreated = db.ReadProduct(fourthProductId);
+
+            //Display the Items
+            //Stol 1:
+
+            Console.WriteLine($"a):\nNavn: '{firstProductCreated.ProductName}'\n" + $"Beskrivelse: '{firstProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{firstProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{firstProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{firstProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{firstProductCreated.ProductPrice}$'\n");
+
+            //Stol 2:
+
+            Console.WriteLine($"b):\nNavn: '{secondProductCreated.ProductName}'\n" + $"Beskrivelse: '{secondProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{secondProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{secondProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{secondProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{secondProductCreated.ProductPrice}$'\n");
+
+            //Stol 3:
+
+            Console.WriteLine($"c):\nNavn: '{thirdProductCreated.ProductName}'\n" + $"Beskrivelse: '{thirdProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{thirdProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{thirdProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{thirdProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{thirdProductCreated.ProductPrice}$'\n");
+
+            //Stol 4:
+
+            Console.WriteLine($"c):\nNavn: '{fourthProductCreated.ProductName}'\n" + $"Beskrivelse: '{fourthProductCreated.ProductDesc}'\n"
+                + $"Høyde: '{fourthProductCreated.ProductHeight}cm'\n"
+                + $"Lengde: '{fourthProductCreated.ProductLenght}cm'\n"
+                + $"Bredde: '{fourthProductCreated.ProductWidth}cm'\n"
+                + $"Pris: '{fourthProductCreated.ProductPrice}$'\n");
+
+
+
+        }
+
+
 
     }
 }

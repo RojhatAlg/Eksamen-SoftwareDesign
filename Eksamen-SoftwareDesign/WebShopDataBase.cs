@@ -29,7 +29,10 @@ namespace NettButikk
                     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                     productName TEXT NOT NULL,
                     productPrice TEXT NOT NULL,
-                    productDesc TEXT NOT NULL
+                    productDesc TEXT NOT NULL,
+                    productHeight TEXT NOT NULL,
+                    productLenght TEXT NOT NULL,
+                    productWidth TEXT NOT NULL
                 );
             ";
             try
@@ -44,7 +47,7 @@ namespace NettButikk
             
         }
 
-        public int InsertProduct(string productName, string productPrice, string productDesc)
+        public int InsertProduct(string productName, string productPrice, string productDesc, string productHeight, string productLenght, string productWidth)
         {
             int generatedId = -1;
 
@@ -61,12 +64,15 @@ namespace NettButikk
             }
             SqliteCommand command = connection.CreateCommand();
             command.CommandText = @"
-				INSERT INTO product (productName, productPrice, productDesc)
-				VALUES ($productName, $productPrice, $productDesc);
+				INSERT INTO product (productName, productPrice, productDesc, productHeight, productLenght, productWidth)
+				VALUES ($productName, $productPrice, $productDesc, $productHeight, $productLenght, $productWidth);
 			";
             command.Parameters.AddWithValue("$productName", productName);
             command.Parameters.AddWithValue("$productPrice", productPrice);
             command.Parameters.AddWithValue("$productDesc", productDesc);
+            command.Parameters.AddWithValue("$productHeight", productHeight);
+            command.Parameters.AddWithValue("$productLenght", productLenght);
+            command.Parameters.AddWithValue("$productWidth", productWidth);
 
             try
             {
@@ -106,6 +112,9 @@ namespace NettButikk
             string productName = "";
             string productPrice = "";
             string productDesc = "";
+            string productHeight = "";
+            string productLenght = "";
+            string productWidth = "";
 
             using SqliteConnection connection = new("Data Source = exampleSqlite.db");
             try
@@ -119,7 +128,7 @@ namespace NettButikk
             }
             SqliteCommand command = connection.CreateCommand();
             command.CommandText = @"
-				SELECT productName, productPrice, productDesc FROM product WHERE id = $id
+				SELECT productName, productPrice, productDesc, productHeight, productLenght, productWidth FROM product WHERE id = $id
 			";
 
             
@@ -133,13 +142,19 @@ namespace NettButikk
              
             {
 
-                Product product = new Product(productName, productPrice, productDesc);
+                Product product = new Product(productName, productPrice, productDesc, productHeight, productLenght, productWidth);
                 productName = reader.GetString(0);
                 productPrice = reader.GetString(1);
                 productDesc = reader.GetString(2);
+                productHeight = reader.GetString(3);
+                productLenght = reader.GetString(4);
+                productWidth = reader.GetString(5);
                 product.ProductPrice = productPrice;
                 product.ProductName = productName;
                 product.ProductDesc = productDesc;
+                product.ProductHeight = productHeight;
+                product.ProductLenght = productLenght;
+                product.ProductWidth = productWidth;
 
 
                 return product;

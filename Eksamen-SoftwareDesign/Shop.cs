@@ -74,6 +74,12 @@ namespace NettButikk
                 WriteLine("1100$ Has been added to the total cost.");
                 displayCheckout();
             }
+            if (valgStol == "c")
+            {
+                Money.totalCost += 20;
+                WriteLine("20$ Has been added to the total cost.");
+                displayCheckout();
+            }
         }
 
         private void buyTable()
@@ -83,14 +89,21 @@ namespace NettButikk
             
             if (valgBord == "a")
             {
-                Money.totalCost += 150;
-                WriteLine("150$ Has been added to the total cost. Total cost is now: " + Money.totalCost + "$");
+                Money.totalCost += 1200;
+                WriteLine("1200$ Has been added to the total cost. Total cost is now: " + Money.totalCost + "$");
                 displayCheckout();
             }
             if (valgBord == "b")
             {
-                Money.totalCost += 500;
-                WriteLine("500$ Has been added to the total cost.");
+                Money.totalCost += 380;
+                WriteLine("380$ Has been added to the total cost.");
+                displayCheckout();
+            }
+
+            if (valgBord == "c")
+            {
+                Money.totalCost += 750;
+                WriteLine("750$ Has been added to the total cost.");
                 displayCheckout();
             }
         }
@@ -102,14 +115,14 @@ namespace NettButikk
 
             if (valgSkap == "a")
             {
-                Money.totalCost += 1550;
-                WriteLine("1550$ Has been added to the total cost. Total cost is now: " + Money.totalCost + "$");
+                Money.totalCost += 2230;
+                WriteLine("2230$ Has been added to the total cost. Total cost is now: " + Money.totalCost + "$");
                 displayCheckout();
             }
             if (valgSkap == "b")
             {
-                Money.totalCost += 750;
-                WriteLine("750$ Has been added to the total cost.");
+                Money.totalCost += 630;
+                WriteLine("630$ Has been added to the total cost.");
                 displayCheckout();
             }
         }
@@ -121,14 +134,26 @@ namespace NettButikk
 
             if (valgSofa == "a")
             {
-                Money.totalCost += 5600;
-                WriteLine("5600$ Has been added to the total cost. Total cost is now: " + Money.totalCost + "$");
+                Money.totalCost += 3500;
+                WriteLine("3500$ Has been added to the total cost. Total cost is now: " + Money.totalCost + "$");
                 displayCheckout();
             }
             if (valgSofa == "b")
             {
-                Money.totalCost += 3500;
-                WriteLine("3500$ Has been added to the total cost.");
+                Money.totalCost += 5000;
+                WriteLine("5000$ Has been added to the total cost.");
+                displayCheckout();
+            }
+            if (valgSofa == "c")
+            {
+                Money.totalCost += 3350;
+                WriteLine("3350$ Has been added to the total cost.");
+                displayCheckout();
+            }
+            if (valgSofa == "d")
+            {
+                Money.totalCost += 7850;
+                WriteLine("7850$ Has been added to the total cost.");
                 displayCheckout();
             }
         }
