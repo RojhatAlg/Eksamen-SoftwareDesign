@@ -9,6 +9,33 @@ namespace NettButikk
 {
     internal class Product
     {
+        internal string productName;
+        internal string productPrice;
+
+        public Product(string productName, string productPrice)
+        {
+            this.productName = productName;
+            this.productPrice = productPrice;
+        }
+
+        public string ProductName { 
+            get { return productName; } 
+        set { productName = value; }
+        }
+
+        public string ProductPrice
+        {
+            get { return productPrice; }
+            set { productPrice = value; }
+        }
+
+        public Product()
+        {
+        }
+
+     
+
+      
 
         public void DisplayItemStol()
         {

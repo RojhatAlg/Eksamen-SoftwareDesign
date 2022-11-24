@@ -20,11 +20,11 @@ namespace NettButikk
             int firstProductId = db.InsertProduct("Elkjøp Sofa", "100");
             int secondProductId = db.InsertProduct("Ikea Gamingbord", "50");
 
-            string firstProductCreated = db.ReadProductName(firstProductId);
-            string secondProductCreated = db.ReadProductName(secondProductId);
+            Product firstProductCreated = db.ReadProduct(firstProductId);
+            Product secondProductCreated = db.ReadProduct(secondProductId);
 
-            Console.WriteLine($"First product was:  '{firstProductCreated}'");
-            Console.WriteLine($"Second product was: '{secondProductCreated}'");
+            Console.WriteLine($"First product was:  '{firstProductCreated.ProductName}'" , $"First product was:  '{firstProductCreated.ProductPrice}'");
+            Console.WriteLine($"Second product was: '{secondProductCreated.ProductPrice}'");
         }
     }
 }

@@ -99,7 +99,7 @@ namespace NettButikk
             return generatedId;
         }
 
-        public string ReadProductName(int id)
+        public Product ReadProduct(int id)
         {
             string productName = "";
             string productPrice = "";
@@ -123,13 +123,26 @@ namespace NettButikk
             
             command.Parameters.AddWithValue("$id", id);
             using SqliteDataReader reader = command.ExecuteReader();
+
+            
+
             if (reader.Read())
+             
             {
+
+                Product product = new Product(productName, productPrice);
                 productName = reader.GetString(0);
-                productPrice = reader.GetString(0);
+                productPrice = reader.GetString(1);
+                product.ProductPrice = productPrice;
+                product.ProductName = productName;
+
+
+                return product;
+
+                
             }
 
-            return productName;
+            return null;
 
  
         }
