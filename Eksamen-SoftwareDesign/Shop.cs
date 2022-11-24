@@ -160,7 +160,7 @@ namespace NettButikk
         private void DisplayOutro()
         {
             WriteLine("Your totale came out to be: " + totalCost);
-            WriteLine("Thanks for shopping!");
+            WriteLine("Thanks for shopping! :)");
             WriteLine("Press any key to exit...");
             ReadKey();
         }

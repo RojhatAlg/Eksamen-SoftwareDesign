@@ -37,7 +37,7 @@ namespace NettButikk
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
             sellItem("a) PAX skap", 1550, "Stor å fin garderobeskap med skyvedører");
-            sellItem("b) IKEA Skap", 750, "Stor dobbedør skap for alle dine flotte klær");
+            sellItem("b) IKEA Skap", 750, "Stor dobbedør skap for alle dine flotte klær!");
             WriteLine("==============================================");
 
         }
