@@ -11,11 +11,13 @@ namespace NettButikk
     {
         internal string productName;
         internal string productPrice;
+        internal string productDesc;
 
-        public Product(string productName, string productPrice)
+        public Product(string productName, string productPrice, string productDesc)
         {
             this.productName = productName;
             this.productPrice = productPrice;
+            this.productDesc = productDesc; 
         }
 
         public string ProductName { 
@@ -29,25 +31,32 @@ namespace NettButikk
             set { productPrice = value; }
         }
 
+        public String ProductDesc
+        {
+            get { return productDesc; }
+            set { productDesc = value; }
+        }
+
         public Product()
         {
         }
+        
 
-     
+    }
 
-      
-
+    internal class DisplayProduct
+    {
         public void DisplayItemStol()
         {
-            
+
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
-            sellItem("a) Elkjøp Gamingstol", 2000, "Flott rød og svar gamingstol fra elkjøp!");
-            sellItem("b) IKEA Kontorstol", 1100, "Helt vanlig svart kontorstol fra IKEA som funker flott for skolen!");
+            CreateProduct createProduct = new CreateProduct();
+            createProduct.createItemStol();
             WriteLine("==============================================");
         }
 
-    
+
         public void DisplayItemBord()
         {
 
@@ -81,6 +90,32 @@ namespace NettButikk
         private void sellItem(string itemName, int cost, string beskrivelse)
         {
             WriteLine($"Navn: {itemName}\nPris: {cost} \nBeskrivelse: {beskrivelse}");
+
+        }
+    }
+
+    internal class CreateProduct
+    {
+        public void createItemStol()
+        {
+
+            WebShopDataBase db = new();
+
+            db.CreateDbAndTable();
+
+            int firstProductId = db.InsertProduct("Gaming stol", "2000", "Dette er en bra gaming stol. Svært behagelig for maaange lange gaming økter!");
+            int secondProductId = db.InsertProduct("Luksus stol", "1100", "Vil du ha en stol? eller vil du ha noe mer enn en stol? " +
+                "Har du alltid drømt om å sitte på en sky? Engst deg ikke! Kjøp denne luksus stolen, andre stoler skal føles ut som betong etter denne!");
+            int thirdProductId = db.InsertProduct("Billig stol", "20", "Mye stol for pengene.");
+
+            Product firstProductCreated = db.ReadProduct(firstProductId);
+            Product secondProductCreated = db.ReadProduct(secondProductId);
+            Product thirdProductCreated = db.ReadProduct(thirdProductId);
+
+            Console.WriteLine($"a):\nNavn: '{firstProductCreated.ProductName}'\n" + $"Beskrivelse: '{firstProductCreated.ProductDesc}'\n" + $"Pris: '{firstProductCreated.ProductPrice}$'\n");
+            Console.WriteLine($"b):\nNavn: '{secondProductCreated.ProductName}'\n" + $"Beskrivelse: '{secondProductCreated.ProductDesc}'\n" + $"Pris: '{secondProductCreated.ProductPrice}$'\n");
+            Console.WriteLine($"c):\nNavn: '{thirdProductCreated.ProductName}'\n" + $"Beskrivelse: '{thirdProductCreated.ProductDesc}'\n" + $"Pris: '{thirdProductCreated.ProductPrice}$'\n");
+
 
         }
 

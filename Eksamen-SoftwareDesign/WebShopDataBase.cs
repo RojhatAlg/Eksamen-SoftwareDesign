@@ -28,7 +28,8 @@ namespace NettButikk
                 CREATE TABLE product (
                     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                     productName TEXT NOT NULL,
-                    productPrice TEXT NOT NULL
+                    productPrice TEXT NOT NULL,
+                    productDesc TEXT NOT NULL
                 );
             ";
             try
@@ -43,7 +44,7 @@ namespace NettButikk
             
         }
 
-        public int InsertProduct(string productName, string productPrice)
+        public int InsertProduct(string productName, string productPrice, string productDesc)
         {
             int generatedId = -1;
 
@@ -60,11 +61,12 @@ namespace NettButikk
             }
             SqliteCommand command = connection.CreateCommand();
             command.CommandText = @"
-				INSERT INTO product (productName, productPrice)
-				VALUES ($productName, $productPrice);
+				INSERT INTO product (productName, productPrice, productDesc)
+				VALUES ($productName, $productPrice, $productDesc);
 			";
             command.Parameters.AddWithValue("$productName", productName);
             command.Parameters.AddWithValue("$productPrice", productPrice);
+            command.Parameters.AddWithValue("$productDesc", productDesc);
 
             try
             {
@@ -103,6 +105,7 @@ namespace NettButikk
         {
             string productName = "";
             string productPrice = "";
+            string productDesc = "";
 
             using SqliteConnection connection = new("Data Source = exampleSqlite.db");
             try
@@ -116,7 +119,7 @@ namespace NettButikk
             }
             SqliteCommand command = connection.CreateCommand();
             command.CommandText = @"
-				SELECT productName, productPrice FROM product WHERE id = $id
+				SELECT productName, productPrice, productDesc FROM product WHERE id = $id
 			";
 
             
@@ -130,11 +133,13 @@ namespace NettButikk
              
             {
 
-                Product product = new Product(productName, productPrice);
+                Product product = new Product(productName, productPrice, productDesc);
                 productName = reader.GetString(0);
                 productPrice = reader.GetString(1);
+                productDesc = reader.GetString(2);
                 product.ProductPrice = productPrice;
                 product.ProductName = productName;
+                product.ProductDesc = productDesc;
 
 
                 return product;
