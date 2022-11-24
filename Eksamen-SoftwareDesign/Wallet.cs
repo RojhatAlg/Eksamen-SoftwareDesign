@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace NettButikk
 {
-    class Wallet
+    internal class Money
     {
-        public void initializeWallet()
+        internal static int totalCost;
+
+        class Wallet
         {
+            public int totalCost;
+            public void initializeWallet()
+            {
+
+            }
+
 
         }
-
-
     }
-
 }
