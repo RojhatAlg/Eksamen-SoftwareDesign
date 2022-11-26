@@ -73,35 +73,35 @@ namespace NettButikk
 
     }
 
-    internal class Categories
+    public void AskForCategory()
+           {
+   
+               DisplayProduct product = new DisplayProduct();
+               WriteLine("Vennligst velg et kategori mellom a-d");
+               string kundeKategori = ReadLine();
+               Buy buy = new Buy();
+               if (kundeKategori == "a")
+               {
+                   product.DisplayItemStol();
+                   buy.buyStol();
+               }
+               if (kundeKategori == "b")
+               {
+                   product.DisplayItemBord();
+                   buy.buyTable();
+               }
+               if (kundeKategori == "c")
+               {
+                   product.DisplayItemGarderobeSkap();
+                   buy.buySkap();
+               }
+               if (kundeKategori == "d")
+               {
+                   product.DisplayItemSofa();
+                   buy.buySofa();
+               } internal class Categories
     {
-        public void AskForCategory()
-        {
-
-            DisplayProduct product = new DisplayProduct();
-            WriteLine("Vennligst velg et kategori mellom a-d");
-            string kundeKategori = ReadLine();
-            Buy buy = new Buy();
-            if (kundeKategori == "a")
-            {
-                product.DisplayItemStol();
-                buy.buyStol();
-            }
-            if (kundeKategori == "b")
-            {
-                product.DisplayItemBord();
-                buy.buyTable();
-            }
-            if (kundeKategori == "c")
-            {
-                product.DisplayItemGarderobeSkap();
-                buy.buySkap();
-            }
-            if (kundeKategori == "d")
-            {
-                product.DisplayItemSofa();
-                buy.buySofa();
-            }
+       
 
         }
     }

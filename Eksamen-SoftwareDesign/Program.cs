@@ -16,5 +16,3 @@ namespace NettButikk
         }
     }
 }
-
-// hello from rune//
