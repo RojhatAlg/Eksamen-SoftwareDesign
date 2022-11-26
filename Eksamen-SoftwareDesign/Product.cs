@@ -111,12 +111,6 @@ namespace NettButikk
             createProduct.createItemSofa();
             WriteLine("==============================================");
         }
-
-        private void sellItem(string itemName, int cost, string beskrivelse)
-        {
-            WriteLine($"Navn: {itemName}\nPris: {cost} \nBeskrivelse: {beskrivelse}");
-
-        }
     }
 
     internal class CreateProduct

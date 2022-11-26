@@ -195,7 +195,7 @@ namespace NettButikk
                 CREATE TABLE customer (
                     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                     customerName TEXT NOT NULL,
-                    customerWallet TEXT NOT NULL
+                    customerWallet INT NOT NULL
                 );
             ";
             try
@@ -210,7 +210,7 @@ namespace NettButikk
 
         }
 
-        public int InsertCustomer(string customerName, string customerWallet)
+        public int InsertCustomer(string customerName, int customerWallet)
         {
             int generatedId = -1;
 
@@ -270,7 +270,7 @@ namespace NettButikk
         public Customer ReadCustomer(int id)
         {
             string customerName = "";
-            string customerWallet = "";
+            int customerWallet = 0;
             
 
             using SqliteConnection connection = new("Data Source = exampleSqlite.db");
@@ -301,7 +301,7 @@ namespace NettButikk
 
                 Customer customer = new Customer(customerName, customerWallet);
                 customerName = reader.GetString(0);
-                customerWallet = reader.GetString(1);
+                customerWallet = reader.GetInt32(1);
                 customer.CustomerName = customerName;
                 customer.CustomerWallet = customerWallet;
                 
