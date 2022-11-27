@@ -18,6 +18,7 @@ namespace NettButikk
         Categories categories = new Categories();
 
         public void startRun()
+            //Shop Logic after
         {
             DisplayIntro();
             categories.AskForCategory();
@@ -25,8 +26,9 @@ namespace NettButikk
         }
         public void run()
         {
+
+            //Shop Logic
             
-            // Shop logic
             c.DisplayCustomers();
             DisplayIntro();
             categories.AskForCategory();
@@ -36,6 +38,7 @@ namespace NettButikk
         public void Exit()
         {
             DisplayExit();
+            
         }
 
         private void DisplayIntro()
@@ -114,19 +117,19 @@ namespace NettButikk
             if (valgStol == "a")
             {
                 Money.TotalCost += 2000;
-                WriteLine("2000$ Has been added to the total cost. Total cost is now: " + Money.TotalCost + "$");
+                WriteLine("$2000 Has been added to the total cost. Total cost is now: $" + Money.TotalCost);
                 cart.displayCheckout();
             }
             if (valgStol == "b")
             {
                 Money.TotalCost += 1100;
-                WriteLine("1100$ Has been added to the total cost.");
+                WriteLine("$1100 Has been added to the total cost.");
                 cart.displayCheckout();
             }
             if (valgStol == "c")
             {
                 Money.TotalCost += 20;
-                WriteLine("20$ Has been added to the total cost.");
+                WriteLine("$20 Has been added to the total cost.");
                 cart.displayCheckout();
             }
         }
@@ -137,19 +140,19 @@ namespace NettButikk
             if (valgBord == "a")
             {
                 Money.TotalCost += 1200;
-                WriteLine("1200$ Has been added to the total cost. Total cost is now: " + Money.TotalCost + "$");
+                WriteLine("$1200 Has been added to the total cost. Total cost is now: $" + Money.TotalCost);
                 cart.displayCheckout();
             }
             if (valgBord == "b")
             {
                 Money.TotalCost += 380;
-                WriteLine("380$ Has been added to the total cost.");
+                WriteLine("$380 Has been added to the total cost.");
                 cart.displayCheckout();
             }
             if (valgBord == "c")
             {
                 Money.TotalCost += 750;
-                WriteLine("750$ Has been added to the total cost.");
+                WriteLine("$750 Has been added to the total cost.");
                 cart.displayCheckout();
             }
         }
@@ -160,13 +163,13 @@ namespace NettButikk
             if (valgSkap == "a")
             {
                 Money.TotalCost += 2230;
-                WriteLine("2230$ Has been added to the total cost. Total cost is now: " + Money.TotalCost + "$");
+                WriteLine("$2230 Has been added to the total cost. Total cost is now: $" + Money.TotalCost);
                 cart.displayCheckout();
             }
             if (valgSkap == "b")
             {
                 Money.TotalCost += 630;
-                WriteLine("630$ Has been added to the total cost.");
+                WriteLine("$630 Has been added to the total cost.");
                 cart.displayCheckout();
             }
         }
@@ -177,25 +180,25 @@ namespace NettButikk
             if (valgSofa == "a")
             {
                 Money.TotalCost += 3500;
-                WriteLine("3500$ Has been added to the total cost. Total cost is now: " + Money.TotalCost + "$");
+                WriteLine("$3500 Has been added to the total cost. Total cost is now: $" + Money.TotalCost);
                 cart.displayCheckout();
             }
             if (valgSofa == "b")
             {
                 Money.TotalCost += 5000;
-                WriteLine("5000$ Has been added to the total cost.");
+                WriteLine("$5000 Has been added to the total cost.");
                 cart.displayCheckout();
             }
             if (valgSofa == "c")
             {
                 Money.TotalCost += 3350;
-                WriteLine("3350$ Has been added to the total cost.");
+                WriteLine("$3350 Has been added to the total cost.");
                 cart.displayCheckout();
             }
             if (valgSofa == "d")
             {
                 Money.TotalCost += 7850;
-                WriteLine("7850$ Has been added to the total cost.");
+                WriteLine("$7850 Has been added to the total cost.");
                 cart.displayCheckout();
             }
         }
@@ -211,13 +214,13 @@ namespace NettButikk
 
             int c = money.ReturnTotal();
             ForegroundColor = ConsoleColor.Green;
-            WriteLine("Total cost is now: " + Money.TotalCost + "$");
+            WriteLine("Total cost is now: $" + Money.TotalCost);
             ForegroundColor = ConsoleColor.White;
             WriteLine("Do you want to contine shopping? y/n");
             int total = Money.TotalCost;
             int newBalance = Money.TotalBalance - Money.TotalCost;
             ForegroundColor = ConsoleColor.Green;
-            WriteLine("You have " + newBalance + " Left in your account");
+            WriteLine("You have $" + newBalance + " Left in your account");
             ForegroundColor = ConsoleColor.White;
             String continueYorN = ReadLine();
             Shop shop = new Shop();

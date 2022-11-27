@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace NettButikk
 {
+
+    
+
     class WebShopDataBase
     {
         public void CreateDbAndTable()
         {
-            using SqliteConnection connection = new("Data Source = exampleSqlite.db");
+            using SqliteConnection connection = new("Data Source = webshopSqlite.db");
             try
             {
                 connection.Open();
@@ -51,7 +54,7 @@ namespace NettButikk
         {
             int generatedId = -1;
 
-            using SqliteConnection connection = new("Data Source = exampleSqlite.db");
+            using SqliteConnection connection = new("Data Source = webshopSqlite.db");
 
             try
             {
@@ -116,7 +119,7 @@ namespace NettButikk
             string productLenght = "";
             string productWidth = "";
 
-            using SqliteConnection connection = new("Data Source = exampleSqlite.db");
+            using SqliteConnection connection = new("Data Source = webshopSqlite.db");
             try
             {
                 connection.Open();
@@ -179,7 +182,7 @@ namespace NettButikk
 
         public void CreateDbAndTable()
         {
-            using SqliteConnection connection = new("Data Source = exampleSqlite.db");
+            using SqliteConnection connection = new("Data Source = webshopSqlite.db");
             try
             {
                 connection.Open();
@@ -214,7 +217,7 @@ namespace NettButikk
         {
             int generatedId = -1;
 
-            using SqliteConnection connection = new("Data Source = exampleSqlite.db");
+            using SqliteConnection connection = new("Data Source = webshopSqlite.db");
 
             try
             {
@@ -271,9 +274,9 @@ namespace NettButikk
         {
             string customerName = "";
             int customerWallet = 0;
-            
 
-            using SqliteConnection connection = new("Data Source = exampleSqlite.db");
+
+            using SqliteConnection connection = new("Data Source = webshopSqlite.db");
             try
             {
                 connection.Open();
@@ -304,7 +307,7 @@ namespace NettButikk
                 customerWallet = reader.GetInt32(1);
                 customer.CustomerName = customerName;
                 customer.CustomerWallet = customerWallet;
-                
+
 
 
                 return customer;
@@ -316,6 +319,12 @@ namespace NettButikk
 
 
         }
+
+
+
+
+
+
 
     }
 }

@@ -10,8 +10,8 @@ namespace NettButikk
     {
         public MessageListner()
         {
-            Console.WriteLine("Hello, welcome to our Webshop!");
-            Console.WriteLine("\nPress any button to enter the Webshop.");
+            Console.WriteLine("Hello, Welcome to our Webshop!");
+            Console.WriteLine("\nPress any key button to enter the Webshop...");
 
         }
     }

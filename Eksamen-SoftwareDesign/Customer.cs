@@ -18,7 +18,6 @@ namespace NettButikk
         {
         }
 
-
         public Customer(string customerName, int customerWallet)
         {
             this.customerName = customerName;
@@ -41,52 +40,23 @@ namespace NettButikk
 
         public void DisplayCustomers()
         {
-            WriteLine("==============================================");
-            WriteLine("CUSTOMERS");
-            CreateCustomer();
-            WriteLine("Choose a Customer between 'a' or 'b'");
-            string chosenCustomer = ReadLine();
-
+            
+            
             CustomerDataBase db_customer = new();
             db_customer.CreateDbAndTable();
 
             int firstCustomerId = db_customer.InsertCustomer("Jonas", 5000);
-            int secondCustomerId = db_customer.InsertCustomer("Mohammed", 10000);
 
             Customer firstCustomerCreated = db_customer.ReadCustomer(firstCustomerId);
-            Customer secondCustomerCreated = db_customer.ReadCustomer(secondCustomerId);
-
-
-
-            if (chosenCustomer == "a")
-            {
-                WriteLine($"You choose '{firstCustomerCreated.CustomerName}'\n" + $"Your total Balance is: '{firstCustomerCreated.CustomerWallet}'\n");
-                int CustomerTotalBalance = firstCustomerCreated.CustomerWallet;
-                
-            }
-
-            if (chosenCustomer == "b")
-            {
-                WriteLine($"You choose '{secondCustomerCreated.CustomerName}'\n" + $"Your total Balance is: '{secondCustomerCreated.CustomerWallet}'\n");
-                int CustomerTotalBalance = firstCustomerCreated.CustomerWallet;
-            }
+            WriteLine("==============================================");
+            WriteLine("CUSTOMER");
+            WriteLine("==============================================");
+            WriteLine($"Welcome {firstCustomerCreated.CustomerName}!");
+            WriteLine("==============================================");           
+            WriteLine($"Name: '{firstCustomerCreated.CustomerName}'\n" + $"Your total Balance is: '${firstCustomerCreated.CustomerWallet}'");        
             WriteLine("==============================================");
 
-        }
-
-        public void CreateCustomer()
-        {
-            CustomerDataBase db_customer = new();
-            db_customer.CreateDbAndTable();
-
-            int firstCustomerId = db_customer.InsertCustomer("Jonas", 5000);
-            int secondCustomerId = db_customer.InsertCustomer("Mohammed", 10000);
-
-            Customer firstCustomerCreated = db_customer.ReadCustomer(firstCustomerId);
-            Customer secondCustomerCreated = db_customer.ReadCustomer(secondCustomerId);
-
-            Console.WriteLine($"First Customer:  '{firstCustomerCreated.CustomerName}'" + $" '{firstCustomerCreated.CustomerWallet}' kroner ");
-            Console.WriteLine($"Secound Customer:  '{secondCustomerCreated.CustomerName}'" + $" '{secondCustomerCreated.CustomerWallet}' kroner ");
+            int CustomerTotalBalance = firstCustomerCreated.CustomerWallet;
         }
 
 

@@ -5,6 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace NettButikk
 {
     internal class Money
@@ -14,8 +15,7 @@ namespace NettButikk
         private CustomerDataBase customerData = new CustomerDataBase();
         private Customer customer = new Customer();
 
-        
-
+       
 
         public static int TotalCost
         {
@@ -28,10 +28,6 @@ namespace NettButikk
             get { return totalBalance; }
             set { totalBalance = value; }
         }
-
-        
-
-
 
 
 

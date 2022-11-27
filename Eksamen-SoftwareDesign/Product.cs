@@ -73,7 +73,6 @@ namespace NettButikk
     {
         public void DisplayItemStol()
         {
-
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
             CreateProduct createProduct = new CreateProduct();
@@ -84,8 +83,6 @@ namespace NettButikk
 
         public void DisplayItemBord()
         {
-
-
             WriteLine("==============================================");
             WriteLine("PRODUKTER");
             CreateProduct createProduct = new CreateProduct();
@@ -134,29 +131,29 @@ namespace NettButikk
             Product thirdProductCreated = db.ReadProduct(thirdProductId);
 
             //Display the Items
-            //Stol 1:
+            //1:
 
             Console.WriteLine($"a):\nNavn: '{firstProductCreated.ProductName}'\n" + $"Beskrivelse: '{firstProductCreated.ProductDesc}'\n" 
                 + $"Høyde: '{firstProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{firstProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{firstProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{firstProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${firstProductCreated.ProductPrice}'\n");
 
-            //Stol 2:
+            //2:
 
             Console.WriteLine($"b):\nNavn: '{secondProductCreated.ProductName}'\n" + $"Beskrivelse: '{secondProductCreated.ProductDesc}'\n"
                 + $"Høyde: '{secondProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{secondProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{secondProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{secondProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${secondProductCreated.ProductPrice}'\n");
 
-            //Stol 3:
+            //3:
 
             Console.WriteLine($"c):\nNavn: '{thirdProductCreated.ProductName}'\n" + $"Beskrivelse: '{thirdProductCreated.ProductDesc}'\n"
                 + $"Høyde: '{thirdProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{thirdProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{thirdProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{thirdProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${thirdProductCreated.ProductPrice}$'\n");
 
 
 
@@ -181,29 +178,29 @@ namespace NettButikk
             Product thirdProductCreated = db.ReadProduct(thirdProductId);
 
             //Display the Items
-            //Stol 1:
+            //1:
 
             Console.WriteLine($"a):\nNavn: '{firstProductCreated.ProductName}'\n" + $"Beskrivelse: '{firstProductCreated.ProductDesc}'\n"
                 + $"Høyde: '{firstProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{firstProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{firstProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{firstProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${firstProductCreated.ProductPrice}'\n");
 
-            //Stol 2:
+            //2:
 
             Console.WriteLine($"b):\nNavn: '{secondProductCreated.ProductName}'\n" + $"Beskrivelse: '{secondProductCreated.ProductDesc}'\n"
                 + $"Høyde: '{secondProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{secondProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{secondProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{secondProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${secondProductCreated.ProductPrice}'\n");
 
-            //Stol 3:
+            //3:
 
             Console.WriteLine($"c):\nNavn: '{thirdProductCreated.ProductName}'\n" + $"Beskrivelse: '{thirdProductCreated.ProductDesc}'\n"
                 + $"Høyde: '{thirdProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{thirdProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{thirdProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{thirdProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${thirdProductCreated.ProductPrice}'\n");
 
 
 
@@ -231,7 +228,7 @@ namespace NettButikk
                 + $"Høyde: '{firstProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{firstProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{firstProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{firstProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${firstProductCreated.ProductPrice}'\n");
 
             //Skap 2:
 
@@ -239,7 +236,7 @@ namespace NettButikk
                 + $"Høyde: '{secondProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{secondProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{secondProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{secondProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${secondProductCreated.ProductPrice}'\n");
 
 
 
@@ -265,37 +262,37 @@ namespace NettButikk
             Product fourthProductCreated = db.ReadProduct(fourthProductId);
 
             //Display the Items
-            //Stol 1:
+            //1:
 
             Console.WriteLine($"a):\nNavn: '{firstProductCreated.ProductName}'\n" + $"Beskrivelse: '{firstProductCreated.ProductDesc}'\n"
                 + $"Høyde: '{firstProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{firstProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{firstProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{firstProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${firstProductCreated.ProductPrice}'\n");
 
-            //Stol 2:
+            //2:
 
             Console.WriteLine($"b):\nNavn: '{secondProductCreated.ProductName}'\n" + $"Beskrivelse: '{secondProductCreated.ProductDesc}'\n"
                 + $"Høyde: '{secondProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{secondProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{secondProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{secondProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${secondProductCreated.ProductPrice}'\n");
 
-            //Stol 3:
+            //3:
 
             Console.WriteLine($"c):\nNavn: '{thirdProductCreated.ProductName}'\n" + $"Beskrivelse: '{thirdProductCreated.ProductDesc}'\n"
                 + $"Høyde: '{thirdProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{thirdProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{thirdProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{thirdProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${thirdProductCreated.ProductPrice}'\n");
 
-            //Stol 4:
+            //4:
 
-            Console.WriteLine($"c):\nNavn: '{fourthProductCreated.ProductName}'\n" + $"Beskrivelse: '{fourthProductCreated.ProductDesc}'\n"
+            Console.WriteLine($"d):\nNavn: '{fourthProductCreated.ProductName}'\n" + $"Beskrivelse: '{fourthProductCreated.ProductDesc}'\n"
                 + $"Høyde: '{fourthProductCreated.ProductHeight}cm'\n"
                 + $"Lengde: '{fourthProductCreated.ProductLenght}cm'\n"
                 + $"Bredde: '{fourthProductCreated.ProductWidth}cm'\n"
-                + $"Pris: '{fourthProductCreated.ProductPrice}$'\n");
+                + $"Pris: '${fourthProductCreated.ProductPrice}'\n");
 
 
 
