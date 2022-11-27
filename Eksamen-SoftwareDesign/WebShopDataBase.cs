@@ -170,11 +170,6 @@ namespace NettButikk
 
         }
 
-        public void DropDb()
-        {
-            File.Delete("exampleSqlite.db");
-        }
-
     }
 
     internal class CustomerDataBase
